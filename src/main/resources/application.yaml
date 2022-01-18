@@ -1,0 +1,2 @@
+config:
+  hello: "Hello. This is default Sparta!"
