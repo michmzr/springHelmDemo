@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>eu.cybershu</groupId>
-	<artifactId>springHelmDemo</artifactId>
+	<artifactId>shd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springHelmDemo</name>
 	<description>Spring Boot Helm configuration</description>

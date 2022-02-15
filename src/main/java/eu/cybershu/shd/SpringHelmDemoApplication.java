@@ -1,4 +1,4 @@
-package eu.cybershu.springHelmDemo;
+package eu.cybershu.shd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
