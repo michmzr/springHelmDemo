@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "spring-helm-demo.fullname" . }}
+  name: {{ include "app.name" . }}
+  namespace: default
   labels:
     {{- include "spring-helm-demo.labels" . | nindent 4 }}
 spec:
@@ -43,6 +44,9 @@ spec:
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: {{.Values.profile}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

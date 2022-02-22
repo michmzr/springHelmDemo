@@ -1,0 +1,4 @@
+{{ toYaml .Values.app | nindent 2 }}
+
+server:
+  port: {{.Values.service.port}}

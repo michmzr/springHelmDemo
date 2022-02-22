@@ -8,7 +8,7 @@ image:
   repository: docker.io/library/shd
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: latest
 
 imagePullSecrets: []
 nameOverride: ""
@@ -77,6 +77,35 @@ autoscaling:
 
 nodeSelector: {}
 
-tolerations: []
+# SPRING PROPERTIES
 
-affinity: {}
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: {{.Values.profile}}
+
+app:
+  spring:
+    application:
+      name: 'shd'
+
+  management:
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+    health:
+      livenessState.enabled: true
+      readinessState.enabled: true
+    endpoints:
+      web:
+        exposure:
+          include: prometheus, health, metrics, caches
+    endpoint:
+      prometheus:
+        enabled: true
+      health:
+        probes:
+          enabled: true
+
+  config:
+    hello: "Hello. This is default Sparta!"
