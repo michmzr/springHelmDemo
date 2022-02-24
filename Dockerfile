@@ -1,5 +1,8 @@
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk11:alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+VOLUME /tmp
+ARG JAR_FILE
+ADD ${JAR_FILE} shd.jar
 EXPOSE 8080
-ARG JAR_FILE=target/shd-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} shd-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/shd.jar"]

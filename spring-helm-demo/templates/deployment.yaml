@@ -25,7 +25,8 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "spring-helm-demo.serviceAccountName" . }}
+{{/*      serviceAccountName: "shd"*/}}
+{{/*      serviceAccountName: {{ include "spring-helm-demo.serviceAccountName" . }}*/}}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
