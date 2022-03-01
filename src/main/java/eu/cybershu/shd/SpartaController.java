@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpartaController {
     private final String hello;
 
-    public SpartaController(@Value("${config.hello}") String hello) {
+    public SpartaController(@Value("${config.hello:sad}") String hello) {
         this.hello = hello;
     }
 

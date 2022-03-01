@@ -1,0 +1,39 @@
+{{/*apiVersion: networking.k8s.io/v1*/}}
+{{/*kind: Ingress*/}}
+{{/*metadata:*/}}
+{{/*  namespace: default*/}}
+{{/*  name: {{ include "spring-helm-demo.fullname" . }}-ingress*/}}
+{{/*  labels:*/}}
+{{/*    {{- include "spring-helm-demo.labels" . | nindent 4 }}*/}}
+{{/*  annotations:*/}}
+{{/*    ingress.kubernetes.io/rewrite-target: /*/}}
+{{/*spec:*/}}
+{{/*  rules:*/}}
+{{/*    - http:*/}}
+{{/*        paths:*/}}
+{{/*        - pathType: Prefix*/}}
+{{/*          path: "/"*/}}
+{{/*          backend:*/}}
+{{/*            service:*/}}
+{{/*              name: {{ include "spring-helm-demo.fullname" . }}*/}}
+{{/*              port:*/}}
+{{/*                number: 8080*/}}
+{{/*                */}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  name: fussy
+spec:
+  rules:
+    - host: spring-helm-demo-host
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ include "spring-helm-demo.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}
+            path: /
+            pathType: Prefix
