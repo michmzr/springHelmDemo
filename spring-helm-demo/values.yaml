@@ -79,12 +79,6 @@ nodeSelector: {}
 
 # SPRING PROPERTIES
 
-#env:
-#  - name: SPRING_PROFILES_ACTIVE
-#    value: dev
-
-profile: dev
-
 app:
   spring:
     application:
@@ -101,13 +95,10 @@ app:
     endpoints:
       web:
         exposure:
-          include: prometheus, health, metrics, caches
+          include: prometheus, health, metrics, caches, mappings
     endpoint:
       prometheus:
         enabled: true
       health:
         probes:
           enabled: true
-
-  config:
-    hello: "Hello. This is default Sparta!"

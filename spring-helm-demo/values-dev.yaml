@@ -1,0 +1,11 @@
+# SPRING PROPERTIES
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: dev
+
+profile: dev
+
+app:
+  config:
+    hello: "Hello. This is default [dev] Sparta!"

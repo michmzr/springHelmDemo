@@ -1,0 +1,13 @@
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: prod
+
+profile: prod
+
+app:
+  spring:
+    application:
+      name: 'shd-prod'
+
+  config:
+    hello: "Welcome to HELL!!. THIS IS SPARTA....."
