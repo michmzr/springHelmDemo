@@ -12,6 +12,5 @@ spec:
       targetPort: {{ .Values.service.port }}
       protocol: TCP
       name: http
-  sessionAffinity: None
   selector:
     {{- include "spring-helm-demo.selectorLabels" . | nindent 4 }}

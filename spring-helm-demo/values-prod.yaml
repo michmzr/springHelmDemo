@@ -4,10 +4,12 @@ env:
 
 profile: prod
 
+
 app:
+  config.hello: "Welcome to HELL!!. THIS IS SPARTA....."
+
+
   spring:
     application:
-      name: 'shd-prod'
+      name: 'shd'
 
-  config:
-    hello: "Welcome to HELL!!. THIS IS SPARTA....."

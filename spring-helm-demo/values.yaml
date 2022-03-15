@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: michmzr/shd
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
@@ -78,7 +78,6 @@ autoscaling:
 nodeSelector: {}
 
 # SPRING PROPERTIES
-
 app:
   spring:
     application:
