@@ -4,10 +4,8 @@ env:
 
 profile: prod
 
-
 app:
   config.hello: "Welcome to HELL!!. THIS IS SPARTA....."
-
 
   spring:
     application:

@@ -1,12 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  namespace: default
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-  name: fussy
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: {{ include "spring-helm-demo.fullname" . }}-ingress
+  labels:
+    {{- include "spring-helm-demo.labels" . | nindent 4 }}
 spec:
   rules:
-    - host: spring-helm-demo-host
+    - host: spring-helm-demo-host.com
       http:
         paths:
           - backend:

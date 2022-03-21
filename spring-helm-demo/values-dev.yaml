@@ -8,4 +8,4 @@ profile: dev
 
 app:
   config:
-    hello: "Hello. This is default [dev] Sparta!"
+    hello: "DEV spartak!"
