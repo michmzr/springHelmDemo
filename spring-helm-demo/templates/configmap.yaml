@@ -6,4 +6,4 @@ metadata:
   annotations:
     'strategy.spinnaker.io/versioned': 'false'
 data:
-  {{ (tpl (.Files.Glob "resources/*").AsConfig . ) | indent 2 }}
+{{ (tpl (.Files.Glob "resources/*").AsConfig . ) | indent 2 }}

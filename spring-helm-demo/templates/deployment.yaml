@@ -43,11 +43,18 @@ spec:
 {{/*              port: {{ .Values.service.port }}*/}}
 {{/*            initialDelaySeconds: 30*/}}
 {{/*            periodSeconds: 3*/}}
+          volumeMounts:
+            - name: {{ include "app.name" . }}-configmap
+              mountPath: /config
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
               - name: SPRING_PROFILES_ACTIVE
                 value: {{.Values.profile}}
+      volumes:
+        - name: {{ include "app.name" . }}-configmap
+          configMap:
+            name: {{ include "app.name" . }}-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
