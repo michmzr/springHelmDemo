@@ -61,11 +61,14 @@ autoscaling:
 
 nodeSelector: {}
 
-# SPRING PROPERTIES
+# APPLICATION PROPERTIES
 app:
   spring:
     application:
       name: 'shd'
+
+  server:
+    port: 8080
 
   management:
     metrics:
@@ -78,8 +81,12 @@ app:
     endpoints:
       web:
         exposure:
-          include: prometheus, health, metrics, caches, mappings
+          include: prometheus, health, metrics, mappings, info, configprops
     endpoint:
+      configprops:
+        enabled: true
+      info:
+        enabled: true
       prometheus:
         enabled: true
       health:

@@ -37,15 +37,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 8080
-{{/*          livenessProbe:*/}}
-{{/*            httpGet:*/}}
-{{/*              path: /actuator/health/liveness*/}}
-{{/*              port: {{ .Values.service.port }}*/}}
-{{/*            initialDelaySeconds: 30*/}}
-{{/*            periodSeconds: 3*/}}
           volumeMounts:
             - name: {{ include "app.name" . }}-configmap
-              mountPath: /config
+              mountPath: config/
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:

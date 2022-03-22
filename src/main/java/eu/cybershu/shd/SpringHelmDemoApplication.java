@@ -7,9 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication
 public class SpringHelmDemoApplication {
-
 	public static void main(String[] args) {
-		log.info("Welcome to Spring Helm Demo app!!");
 		SpringApplication.run(SpringHelmDemoApplication.class, args);
+		log.info("Welcome to Spring Helm Demo app!!");
 	}
 }
