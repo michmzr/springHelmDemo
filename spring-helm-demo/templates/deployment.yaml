@@ -37,6 +37,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 90
+            periodSeconds: 30
           volumeMounts:
             - name: {{ include "app.name" . }}-configmap
               mountPath: config/
